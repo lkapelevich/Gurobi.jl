@@ -108,7 +108,7 @@ function get_intattrlist!{I<:Integer}(r::Array{Cint}, model::Model, name::String
     nothing
 end
 
-function get_intattrlist{I<:Integer}(model::Model, name::String, inds::Vector{I}) 
+function get_intattrlist{I<:Integer}(model::Model, name::String, inds::Vector{I})
     r = Array{Cint}(length(inds))
     get_intattrlist!(r::Array{Cint}, model::Model, name::String, inds)
     return r
@@ -408,6 +408,8 @@ end
 lowerbounds(model::Model) = get_dblattrarray(model, "LB", 1, num_vars(model))
 upperbounds(model::Model) = get_dblattrarray(model, "UB", 1, num_vars(model))
 objcoeffs(model::Model) = get_dblattrarray(model, "Obj", 1, num_vars(model))
+rhs_range_lower(model::Model) = get_dblattrarray(model, "SARHSLow", 1, num_constrs(model))
+rhs_range_upper(model::Model) = get_dblattrarray(model, "SARHSUp",  1, num_constrs(model))
 
 # note: this takes effect only after update_model! is called:
 function set_objcoeffs!(model::Model, c::Vector)

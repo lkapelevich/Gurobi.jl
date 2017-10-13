@@ -39,6 +39,8 @@ module Gurobi
 
     lowerbounds, upperbounds, objcoeffs, set_objcoeffs!,
 
+    rhs_range_lower, rhs_range_upper,
+
     # grb_vars
     GRB_CONTINUOUS, GRB_BINARY, GRB_INTEGER,
     add_var!, add_vars!, add_cvar!, add_cvars!,
