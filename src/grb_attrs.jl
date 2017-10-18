@@ -410,6 +410,8 @@ upperbounds(model::Model) = get_dblattrarray(model, "UB", 1, num_vars(model))
 objcoeffs(model::Model) = get_dblattrarray(model, "Obj", 1, num_vars(model))
 rhs_range_lower(model::Model) = get_dblattrarray(model, "SARHSLow", 1, num_constrs(model))
 rhs_range_upper(model::Model) = get_dblattrarray(model, "SARHSUp",  1, num_constrs(model))
+obj_range_lower(model::Model) = get_dblattrarray(model, "SAObjLow", 1, num_vars(model))
+obj_range_upper(model::Model) = get_dblattrarray(model, "SAObjUp",  1, num_vars(model))
 
 # note: this takes effect only after update_model! is called:
 function set_objcoeffs!(model::Model, c::Vector)
